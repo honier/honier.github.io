@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Honier</title>
+    <script>
+        ip_info = function () {
+            xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("get", "http://myip.ipip.net/", true);
+            xmlHttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("ip_info").innerHTML = this.responseText;
+                }
+            };
+            xmlHttp.send();
+        }
+    </script>
 </head>
-<body>
+<body onload="ip_info()">
 <h1>Hello!!!</h1>
+<div id="ip_info"></div>
 </body>
 </html>
